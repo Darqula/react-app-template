@@ -5,6 +5,10 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"],
+            },
+            {
                 test: /\.(ts|tsx)$/,
                 loader: "ts-loader",
                 exclude: /node_modules/,
@@ -12,6 +16,9 @@ module.exports = {
         ],
     },
     plugins: [new HtmlWebpackPlugin()],
+    resolve: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', 'css'],
+    },
     mode: 'development',
     devServer: {
         open: true,
